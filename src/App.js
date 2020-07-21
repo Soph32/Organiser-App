@@ -25,10 +25,18 @@ function App() {
     setTodo(newToDo);
   };
 
+  const deleteCompleted = () => {
+    const newToDo = [...todo];
+    setTodo(newToDo.filter(item => item.completed === false));
+  };
+
   return (
     <div>
       <div>
-        <ToDoForm addToDo={addToDo}/>
+        <ToDoForm 
+          addToDo={addToDo}
+          deleteCompleted={deleteCompleted}
+          />
       </div>
       <div>
         {todo.map((todo, index) => (
@@ -45,7 +53,7 @@ function App() {
   )
 }
 
-function ToDoForm({addToDo}) {
+function ToDoForm({addToDo, deleteCompleted}) {
   const [value, setValue] = useState("");
 
   function handleSubmit(event) {
@@ -61,6 +69,7 @@ function ToDoForm({addToDo}) {
         <input type="text" maxLength="68" value={value} onChange={event => setValue(event.target.value)}/>
         <button className="submit-btn" type="submit">Add To Do</button>
       </form>
+      <button className="delete-completed-btn" onClick={() => deleteCompleted()}>Delete all completed todos</button>
     </div>
   )
 };

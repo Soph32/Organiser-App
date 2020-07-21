@@ -15,7 +15,8 @@ button {
   color: white;
 }
 
-.submit-btn {
+.submit-btn,
+.delete-completed-btn  {
   border-radius: 8px;
   font-weight: 700;
   min-height: 1.8rem;
@@ -30,6 +31,10 @@ button {
   padding: 0;
   text-align: center;
   width: 1.3rem;
+}
+
+.delete-completed-btn {
+  margin-top: 1rem;
 }
 
 button:active {
