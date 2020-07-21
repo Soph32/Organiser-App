@@ -19,6 +19,12 @@ function App() {
     setTodo(newList);
   };
 
+  const deleteToDo = (index) => {
+    const newToDo = [...todo];
+    newToDo.splice(index, 1);
+    setTodo(newToDo);
+  };
+
   return (
     <div>
       <div>
@@ -31,6 +37,7 @@ function App() {
             index={index}
             todo={todo}
             updateCompleted={updateCompleted}
+            deleteToDo={deleteToDo}
           />
         ))}
       </div>
@@ -52,15 +59,23 @@ function ToDoForm({addToDo}) {
       <h2>To Do List</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" maxLength="68" value={value} onChange={event => setValue(event.target.value)}/>
-        <button type="submit">Add To Do</button>
+        <button className="submit-btn" type="submit">Add To Do</button>
       </form>
     </div>
   )
 };
 
-function ToDoList({todo, index, updateCompleted}) {
+function ToDoList({todo, index, updateCompleted, deleteToDo}) {
   return(
-    <div className="to-dos" style={{textDecoration: todo.completed ? "line-through" : ""}} onClick={() => updateCompleted(index)}>{todo.text}</div>
+    <div>
+      <div 
+        className="to-dos" 
+        style={{textDecoration: todo.completed ? "line-through" : ""}} 
+        onClick={() => updateCompleted(index)}>
+          {todo.text} 
+      </div>
+      <button className="delete-btn" onClick={() => deleteToDo(index)}>X</button>
+    </div>
   );
 };
 

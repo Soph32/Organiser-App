@@ -12,11 +12,24 @@ input {
 
 button {
   background-color: #d97007;
-  border-radius: 8px;
   color: white;
+}
+
+.submit-btn {
+  border-radius: 8px;
   font-weight: 700;
   min-height: 1.8rem;
   min-width: 6rem;
+}
+
+.delete-btn {
+  border-radius: 5px;
+  float: right;
+  margin-top: -1.5rem;
+  margin-right: 7rem;
+  padding: 0;
+  text-align: center;
+  width: 1.3rem;
 }
 
 button:active {
