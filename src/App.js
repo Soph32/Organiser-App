@@ -11,16 +11,20 @@ function App() {
   
   const updateCompleted = (index) => {
     const newList = [...todo];
-    newList[index].completed = true;
+    if (newList[index].completed) {
+      newList[index].completed = false;
+    } else {
+      newList[index].completed = true;
+    }
     setTodo(newList);
   };
 
   return (
     <div>
-      <div className="add-to-dos">
+      <div>
         <ToDoForm addToDo={addToDo}/>
       </div>
-      <div className="list-to-dos">
+      <div>
         {todo.map((todo, index) => (
           <ToDoList 
             key={index}
@@ -45,9 +49,9 @@ function ToDoForm({addToDo}) {
 
   return (
     <div>
-      <p>To Do List</p>
+      <h2>To Do List</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={value} onChange={event => setValue(event.target.value)}/>
+        <input type="text" maxLength="68" value={value} onChange={event => setValue(event.target.value)}/>
         <button type="submit">Add To Do</button>
       </form>
     </div>
@@ -56,10 +60,8 @@ function ToDoForm({addToDo}) {
 
 function ToDoList({todo, index, updateCompleted}) {
   return(
-    <div className="to-dos" onClick={() => updateCompleted(index)}>{todo.text}</div>
+    <div className="to-dos" style={{textDecoration: todo.completed ? "line-through" : ""}} onClick={() => updateCompleted(index)}>{todo.text}</div>
   );
 };
 
 export default App;
-
-
