@@ -2,11 +2,17 @@ import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const [todo, setTodo] = useState([{text: "", completed: false}]);
+  const [todo, setTodo] = useState([]);
 
   const addToDo = (text) => {
     const newToDo = [...todo, {text, completed: false}];
     setTodo(newToDo);
+  };
+  
+  const updateCompleted = (index) => {
+    const newList = [...todo];
+    newList[index].completed = true;
+    setTodo(newList);
   };
 
   return (
@@ -18,7 +24,9 @@ function App() {
         {todo.map((todo, index) => (
           <ToDoList 
             key={index}
+            index={index}
             todo={todo}
+            updateCompleted={updateCompleted}
           />
         ))}
       </div>
@@ -46,7 +54,11 @@ function ToDoForm({addToDo}) {
   )
 };
 
-const ToDoList = ({todo}) => <div>{todo.text}</div>;
+function ToDoList({todo, index, updateCompleted}) {
+  return(
+    <div className="to-dos" onClick={() => updateCompleted(index)}>{todo.text}</div>
+  );
+};
 
 export default App;
 
