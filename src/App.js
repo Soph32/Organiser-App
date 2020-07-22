@@ -76,7 +76,7 @@ function ToDoForm({addToDo, deleteCompleted}) {
 
 function ToDoList({todo, index, updateCompleted, deleteToDo}) {
   return(
-    <div>
+    <div className="todo-list">
       <div 
         className="to-dos" 
         style={{textDecoration: todo.completed ? "line-through" : ""}} 

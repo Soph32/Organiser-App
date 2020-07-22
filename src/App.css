@@ -62,3 +62,7 @@ h2 {
 #completed {
   text-decoration: line-through;
 }
+
+.todo-list {
+  width: 30rem;
+}
