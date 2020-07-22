@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Notes from './notes';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Notes />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -31,7 +31,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="todos">
       <div>
         <ToDoForm 
           addToDo={addToDo}
