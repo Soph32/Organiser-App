@@ -93,3 +93,21 @@ textarea {
   min-width: 85%;
   min-height: 20rem;
 }
+
+@media only screen and (max-width: 770px) {
+  .notes {
+    float: left;
+    position: relative;
+    min-width: 25rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .submit-btn {
+    margin-top: 1rem;
+  }
+
+  .notes {
+    min-width: 100%;
+  }
+}
